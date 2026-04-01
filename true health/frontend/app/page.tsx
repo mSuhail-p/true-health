@@ -1,4 +1,5 @@
 import { ShieldCheck, Circle } from "lucide-react";
+import Link from "next/link";
 export default function Home() {
   return (
     <main className="h-screen bg-gradient-to-br from-[#0B1A2B] via-[#0E2238] to-[#0A1625] text-white relative overflow-hidden ">
@@ -25,9 +26,11 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col gap-4 items-center ">
-          <button className="w-32 h-12 bg-blue-400 text-black rounded  border-black transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-            Check now
-          </button>
+          <Link href="/input">
+            <button className="w-32 h-12 bg-blue-400 text-black rounded  border-black transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+              Check now
+            </button>
+          </Link>
           <div className="flex gap-2 items-center text-[8.5px]">
             <Circle className="w-1 h-1 bg-green-500 rounded-full  animate-pulse" />
             <p>Powered by official NSQ data</p>
