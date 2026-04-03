@@ -2,15 +2,12 @@ import { ShieldCheck, Circle } from "lucide-react";
 import Link from "next/link";
 export default function Home() {
   return (
-    <main className="h-screen bg-gradient-to-br from-[#0B1A2B] via-[#0E2238] to-[#0A1625] text-white relative overflow-hidden ">
+    <main className=" text-white relative overflow-hidden ">
       {/* Top Right Square */}
       <div className="absolute top-20 right-20 w-40 h-40 bg-white/2 rounded-2xl backdrop-blur-md rotate-12"></div>
       {/* Bottom Left Square */}
       <div className="absolute bottom-20 left-20 w-40 h-40 bg-white/2 rounded-2xl backdrop-blur-md -rotate-12"></div>
 
-      <h1>
-        true<span>H</span>ealth
-      </h1>
       <section className="w-full h-full flex flex-col items-center  gap-7 pt-32 relative z-10  ">
         <p className="flex gap-1 text-sm">
           <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
