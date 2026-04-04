@@ -8,7 +8,7 @@ export default function Home() {
       {/* Bottom Left Square */}
       <div className="absolute bottom-20 left-20 w-40 h-40 bg-white/2 rounded-2xl backdrop-blur-md -rotate-12"></div>
 
-      <section className="w-full h-full flex flex-col items-center  gap-7 pt-32 relative z-10  ">
+      <section className="w-full h-full flex flex-col items-center  gap-7 pt-32  relative z-10  ">
         <p className="flex gap-1 text-sm">
           <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
           OFFICIAL SAFETY PROTOCOL
