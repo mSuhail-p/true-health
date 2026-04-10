@@ -28,12 +28,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-gradient-to-br from-[#0B1A2B] via-[#0E2238] to-[#0A1625] p-3">
-        <nav>
-          <h1 className="w-fit text-cyan-700 bg-black p-1 rounded font-bold">
-            True<span className="text-white">health</span>
-          </h1>
-        </nav>
+        <main>
         {children}
+        </main>
       </body>
     </html>
   );

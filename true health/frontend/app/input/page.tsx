@@ -1,16 +1,20 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import Header from "@/components/primitives/header";
 import CameraButton from "@/components/primitives/cameraButton";
 import ImageUpload from "@/components/primitives/imageUpload";
 import ManualInput from "@/components/primitives/manualInput";
 import SubmitButton from "@/components/primitives/submitButton";
 import CameraScan from "@/components/modal/cameraScan";
+import Logo from "@/components/logo";
+Logo;
 const Page = () => {
   const [modal, setModal] = useState<boolean>(false);
   return (
-    <main className="flex justify-center relative ">
-      <section className="max-h-[80vh] w-screen sm:w-96  bg-[#131B2E] text-white flex flex-col gap-5   rounded p-5 pt-10">
+    <section className="flex justify-center relative ">
+      <div className="max-h-[80vh] w-screen sm:w-96  bg-[#131B2E] text-white flex flex-col gap-5   rounded p-5 ">
+        <Logo />
         <Header />
         <CameraButton prop={setModal} />
         <ImageUpload />
@@ -18,10 +22,12 @@ const Page = () => {
           OR ENTER THE DETAILS
         </p>
         <ManualInput />
-        <SubmitButton />
-      </section>
+        <Link href={"/camera"}>
+          <SubmitButton />
+        </Link>
+      </div>
       {modal && <CameraScan prop={setModal} />}
-    </main>
+    </section>
   );
 };
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { CircleCheckBig } from "lucide-react";
 0;
 

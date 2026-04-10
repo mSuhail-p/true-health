@@ -56,7 +56,7 @@ const CameraScan = ({ prop }: cameraOpenModal) => {
             onClick={captureImage}
             className="w-14 h-14 rounded-full bg-white hover:bg-gray-400 cursor-pointer active:scale-95 transition-all"
           />
-
+            {/* showing image on side */}
           {image ? (
             <img
               src={image}

@@ -2,13 +2,13 @@ import { ShieldCheck, Circle } from "lucide-react";
 import Link from "next/link";
 export default function Home() {
   return (
-    <main className=" text-white relative overflow-hidden ">
+    <section >
       {/* Top Right Square */}
       <div className="absolute top-20 right-20 w-40 h-40 bg-white/2 rounded-2xl backdrop-blur-md rotate-12"></div>
       {/* Bottom Left Square */}
       <div className="absolute bottom-20 left-20 w-40 h-40 bg-white/2 rounded-2xl backdrop-blur-md -rotate-12"></div>
 
-      <section className="w-full h-full flex flex-col items-center  gap-7 pt-32  relative z-10  ">
+      <div className="w-full h-full flex flex-col items-center text-white  gap-7 pt-32  relative z-10  ">
         <p className="flex gap-1 text-sm">
           <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
           OFFICIAL SAFETY PROTOCOL
@@ -33,7 +33,7 @@ export default function Home() {
             <p>Powered by official NSQ data</p>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
