@@ -1,27 +1,26 @@
 "use client";
-import { useRef, useState } from "react";
-import { Dispatch, SetStateAction } from "react";
+import { useRef, useState, useEffect } from "react";
 import { CircleX } from "lucide-react";
 
-type cameraOpenModal = {
-  prop: Dispatch<SetStateAction<boolean>>;
-};
-
-const Page = ({ prop }: cameraOpenModal) => {
+const Page = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [image, setImage] = useState<string | null>(null);
-  const [viewImage, setViewImage] = useState<boolean>(false);
 
   //   open camera
-
-  (async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-    });
-    if (videoRef.current) {
-      videoRef.current.srcObject = stream;
-    }
-  })();
+  useEffect(() => {
+    (async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
+      } catch (err) {
+        console.error("Camera accesss denied:", err);
+      }
+    })();
+  }, []);
 
   const captureImage = () => {
     const video = videoRef.current;
@@ -39,57 +38,15 @@ const Page = ({ prop }: cameraOpenModal) => {
   };
 
   return (
-    <div className="min-w-full min-h-full absolute bg-white overflow-hidden">
-
+    <div className="w-full min-h-full  absolute bg-gray-500 overflow-hidden">
+      <div className=" w-full h-screen flex items-center justify-center rounded-2xl bg-black relative">
+        <video ref={videoRef} className="w-full h-full rounded" autoPlay />
+        <button
+          onClick={() => captureImage()}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 lg:bottom-auto lg:top-1/2 lg:right-10 lg:left-auto lg:-translate-y-1/2 lg:translate-x-0 w-16 h-16 bg-white rounded-full border-4 border-gray-300 cursor-pointer active:scale-95 transition-all"
+        />
+      </div>
     </div>
-    // <div className="absolute top-2  inset-0 flex  items-center justify-center z-50 ">
-    //   <div
-    //     id="cameraModal"
-    //     className="bg-[#001E2C] w-[48rem] h-[30rem] rounded p-4 flex items-center justify-end gap-4 shadow-lg border-gray-700 relative  "
-    //   >
-    //     <video
-    //       ref={videoRef}
-    //       className="w-[45rem] h-96 rounded bg-black object-cover"
-    //       autoPlay
-    //     />
-    //     {/* Capture button */}
-    //     <div className=" h-full flex flex-col justify-around items-center gap-10">
-    //       <CircleX
-    //         onClick={() => prop(false)}
-    //         className="w-8 h-8 cursor-pointer text-white "
-    //       />
-
-    //       <button
-    //         onClick={captureImage}
-    //         className="w-14 h-14 rounded-full bg-white hover:bg-gray-400 cursor-pointer active:scale-95 transition-all"
-    //       />
-    //       {/* showing image on side */}
-    //       {image ? (
-    //         <img
-    //           src={image}
-    //           alt="captured"
-    //           onClick={() => setViewImage(true)}
-    //           className="rounded w-15 h-12 "
-    //         />
-    //       ) : (
-    //         <div className="w-15 h-12 bg-black"></div>
-    //       )}
-    //     </div>
-
-    //     {/* modal for image view */}
-    //     {viewImage && (
-    //       <div className="absolute w-[25rem] h-[15rem] inset-34 bg-white">
-    //         {image && (
-    //           <img
-    //             src={image}
-    //             alt="captured"
-    //             className="rounded w-full h-full rounded"
-    //           />
-    //         )}
-    //       </div>
-    //     )}
-    //   </div>
-    // </div>
   );
 };
 
