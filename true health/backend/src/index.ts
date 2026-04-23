@@ -5,8 +5,7 @@ const app = express();
 app.use("/", Router);
 
 const PORT = process.env.PORT;
-console.log(PORT, "it is port");
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("project running on port 3000");
 });

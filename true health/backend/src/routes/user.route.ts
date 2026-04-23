@@ -1,9 +1,8 @@
-import { Router, type Request, type Response } from "express"
-const router: Router = Router()
+import { Router, type Request, type Response } from "express";
+import userController from "../controllers/user.controller.js";
+const usercontroller = new userController();
+const router: Router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-    res.send("it is working")
-})
+router.get("/med-data", usercontroller.medData);
 
-export default router
-
+export default router;
